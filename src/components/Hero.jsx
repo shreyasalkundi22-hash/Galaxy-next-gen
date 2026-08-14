@@ -52,28 +52,18 @@ export default function Hero({ onOpenAdmissions }) {
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left z-10"
           >
-            {/* Prominent Official School Logo Presentation */}
+            {/* Standalone Institution Logo */}
             <motion.div
-              initial={{ scale: 0.85, opacity: 0 }}
+              initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/90 shadow-md border border-purple-200/80 mb-6 backdrop-blur-md"
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              className="mb-6"
             >
-              <div className="w-10 h-10 rounded-xl bg-white p-0.5 shadow-xs border border-purple-200 flex items-center justify-center shrink-0">
-                <img
-                  src={logoImg}
-                  alt={SCHOOL_INFO.name}
-                  className="w-full h-full object-contain rounded-lg"
-                />
-              </div>
-              <div className="flex flex-col text-left">
-                <span className="text-xs font-black tracking-widest text-[#161E54] uppercase whitespace-nowrap">
-                  GALAXY NEXT GEN
-                </span>
-                <span className="text-[10px] font-extrabold tracking-wider text-[#7B2CBF] uppercase whitespace-nowrap">
-                  PRE-PRIMARY SCHOOL
-                </span>
-              </div>
+              <img
+                src={logoImg}
+                alt={SCHOOL_INFO.name}
+                className="w-14 sm:w-16 md:w-18 h-auto object-contain drop-shadow-sm"
+              />
             </motion.div>
 
             {/* Editorial Heading Structure with exact requested tagline: "A foundation for future." */}
