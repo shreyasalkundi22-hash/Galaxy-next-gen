@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Phone, MapPin, GraduationCap, Sparkles, ChevronRight, Heart, Star, Compass, Info, ArrowRight } from 'lucide-react';
 import { SCHOOL_INFO, HERO_IMAGES } from '../data/schoolData';
+import logoImg from '../assets/logo.jpg';
 
 export default function Hero({ onOpenAdmissions }) {
   const [activeImageIndex, setActiveImageIndex] = useState(0);
@@ -60,7 +61,7 @@ export default function Hero({ onOpenAdmissions }) {
             >
               <div className="w-10 h-10 rounded-xl bg-white p-0.5 shadow-xs border border-purple-200 flex items-center justify-center shrink-0">
                 <img
-                  src="/logo.jpg"
+                  src={logoImg}
                   alt={SCHOOL_INFO.name}
                   className="w-full h-full object-contain rounded-lg"
                 />

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Phone, Menu, X, GraduationCap, ChevronRight } from 'lucide-react';
 import { SCHOOL_INFO } from '../data/schoolData';
+import logoImg from '../assets/logo.jpg';
 
 export default function Header({ onOpenAdmissions }) {
   const [scrolled, setScrolled] = useState(false);
@@ -64,7 +65,7 @@ export default function Header({ onOpenAdmissions }) {
               {/* Official School Logo Frame */}
               <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl bg-white/95 p-0.5 shadow-md border border-purple-200/90 group-hover:scale-105 transition-transform duration-300 flex items-center justify-center shrink-0">
                 <img
-                  src="/logo.jpg"
+                  src={logoImg}
                   alt={SCHOOL_INFO.name}
                   className="w-full h-full object-contain rounded-lg sm:rounded-xl"
                 />

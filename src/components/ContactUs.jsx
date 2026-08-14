@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Phone, Mail, Navigation, GraduationCap, Clock, Sparkles } from 'lucide-react';
 import { SCHOOL_INFO } from '../data/schoolData';
+import logoImg from '../assets/logo.jpg';
 
 export default function ContactUs({ onOpenAdmissions }) {
   return (
@@ -51,7 +52,7 @@ export default function ContactUs({ onOpenAdmissions }) {
             <div className="p-8 rounded-3xl bg-white border border-slate-200/80 shadow-md">
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-12 h-12 rounded-2xl bg-white p-1 border border-purple-200 shadow-sm flex items-center justify-center">
-                  <img src="/logo.jpg" alt={SCHOOL_INFO.name} className="w-full h-full object-contain rounded-xl" />
+                  <img src={logoImg} alt={SCHOOL_INFO.name} className="w-full h-full object-contain rounded-xl" />
                 </div>
                 <div>
                   <h3 className="text-xl font-bold font-display text-slate-900 leading-tight">

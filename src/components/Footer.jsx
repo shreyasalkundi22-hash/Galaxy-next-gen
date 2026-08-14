@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Phone, GraduationCap, Heart, ArrowUp } from 'lucide-react';
 import { SCHOOL_INFO } from '../data/schoolData';
+import logoImg from '../assets/logo.jpg';
 
 export default function Footer({ onOpenAdmissions }) {
   const scrollToTop = () => {
@@ -31,7 +32,7 @@ export default function Footer({ onOpenAdmissions }) {
             <div className="flex items-center gap-3 mb-6">
               <div className="w-12 h-12 rounded-2xl bg-white p-1 shadow-md border border-amber-300 flex items-center justify-center">
                 <img
-                  src="/logo.jpg"
+                  src={logoImg}
                   alt={SCHOOL_INFO.name}
                   className="w-full h-full object-contain rounded-xl"
                 />

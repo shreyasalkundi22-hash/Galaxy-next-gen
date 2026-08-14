@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Sparkles, Star } from 'lucide-react';
 import { SCHOOL_INFO } from '../data/schoolData';
+import logoImg from '../assets/logo.jpg';
 
 export default function Preloader() {
   const [loading, setLoading] = useState(true);
@@ -34,7 +35,7 @@ export default function Preloader() {
           >
             <div className="w-28 h-28 sm:w-36 sm:h-36 rounded-3xl bg-white p-2.5 shadow-2xl shadow-purple-900/50 border border-amber-300/40 flex items-center justify-center overflow-hidden">
               <img
-                src="/logo.jpg"
+                src={logoImg}
                 alt={SCHOOL_INFO.name}
                 className="w-full h-full object-contain"
               />
