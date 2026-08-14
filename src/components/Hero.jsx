@@ -62,7 +62,7 @@ export default function Hero({ onOpenAdmissions }) {
               <img
                 src={logoImg}
                 alt={SCHOOL_INFO.name}
-                className="w-14 sm:w-16 md:w-18 h-auto object-contain drop-shadow-sm"
+                className="w-20 sm:w-24 md:w-28 h-auto object-contain drop-shadow-md"
               />
             </motion.div>
 
