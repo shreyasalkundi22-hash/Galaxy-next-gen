@@ -116,13 +116,18 @@ export default function Footer({ onOpenAdmissions }) {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-400 gap-4">
+        <div className="pt-8 flex flex-col md:flex-row items-center justify-between text-[11px] text-slate-400 gap-4 text-center md:text-left">
           <p>© {SCHOOL_INFO.year} {SCHOOL_INFO.name}. All Rights Reserved.</p>
-          <p className="flex items-center gap-1 text-slate-400">
-            <span>Crafted with</span>
-            <Heart className="w-3 h-3 text-rose-500 fill-rose-500" />
-            <span>for early childhood education in Hubli, Karnataka</span>
-          </p>
+          <div className="flex flex-wrap items-center justify-center md:justify-end gap-1.5 text-slate-400">
+            <span className="inline-flex items-center gap-1">
+              <span>Crafted with</span>
+              <Heart className="w-3 h-3 text-rose-500 fill-rose-500" />
+              <span>for early childhood education in Hubli, Karnataka.</span>
+            </span>
+            <span className="text-amber-400 font-semibold">
+              Where ideas meet pixels, designed by Shreyas Alkundi
+            </span>
+          </div>
         </div>
 
       </div>
