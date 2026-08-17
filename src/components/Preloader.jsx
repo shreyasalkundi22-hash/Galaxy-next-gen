@@ -13,13 +13,13 @@ export default function Preloader() {
       setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(interval);
-          setTimeout(() => setLoading(false), 400);
+          setTimeout(() => setLoading(false), 350);
           return 100;
         }
-        const diff = Math.floor(Math.random() * 15) + 5;
+        const diff = Math.floor(Math.random() * 20) + 10;
         return Math.min(prev + diff, 100);
       });
-    }, 100);
+    }, 80);
 
     return () => clearInterval(interval);
   }, []);
@@ -33,24 +33,24 @@ export default function Preloader() {
             y: '-100%',
             transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] } 
           }}
-          className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#0D1B2A] text-white px-4 overflow-hidden"
+          className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#090E17] text-white px-4 overflow-hidden"
         >
           {/* Ambient Glows */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#7B2CBF]/30 rounded-full blur-3xl animate-pulse-glow pointer-events-none" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#4F46E5]/25 rounded-full blur-3xl animate-pulse-glow pointer-events-none" />
 
           {/* Logo & Orbit System */}
           <div className="relative mb-8">
             <motion.div
               animate={{ rotate: 360 }}
               transition={{ duration: 12, repeat: Infinity, ease: 'linear' }}
-              className="absolute -inset-6 rounded-full border border-dashed border-amber-400/40 pointer-events-none"
+              className="absolute -inset-6 rounded-full border border-dashed border-amber-400/50 pointer-events-none"
             >
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-amber-400 shadow-md shadow-amber-400/50 flex items-center justify-center">
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-amber-400 shadow-md shadow-amber-400/60 flex items-center justify-center">
                 <Star className="w-2.5 h-2.5 text-slate-950 fill-slate-950" />
               </div>
             </motion.div>
 
-            <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-white p-2 shadow-2xl shadow-purple-900/60 border-2 border-amber-400 flex items-center justify-center relative overflow-hidden">
+            <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-white p-2 shadow-2xl shadow-indigo-950/80 border-2 border-amber-400 flex items-center justify-center relative overflow-hidden">
               <img
                 src={logoImg}
                 alt={SCHOOL_INFO.name}
@@ -63,27 +63,19 @@ export default function Preloader() {
           <motion.h2
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            className="text-2xl sm:text-3xl font-extrabold tracking-widest font-display text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-white to-purple-200 uppercase text-center"
+            className="text-2xl sm:text-3xl font-extrabold tracking-widest font-display text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-white to-indigo-200 uppercase text-center"
           >
             GALAXY NEXT GEN
           </motion.h2>
 
-          <p className="mt-2 text-xs text-purple-200/80 font-medium italic tracking-wider">
+          <p className="mt-2 text-xs text-indigo-200/80 font-medium italic tracking-wider">
             A universe of possibilities
           </p>
 
-          {/* Smooth Loading Percentage Counter */}
-          <div className="mt-10 flex items-center gap-2">
-            <span className="text-4xl sm:text-5xl font-black font-display text-amber-400 tracking-tighter">
-              {String(progress).padStart(2, '0')}
-            </span>
-            <span className="text-sm font-bold text-amber-400/80">%</span>
-          </div>
-
-          {/* Progress Bar */}
-          <div className="mt-4 w-48 sm:w-64 h-1.5 bg-slate-800 rounded-full overflow-hidden border border-slate-700/60">
+          {/* Sleek Progress Bar (No Numbers) */}
+          <div className="mt-10 w-48 sm:w-64 h-1.5 bg-slate-800 rounded-full overflow-hidden border border-slate-700/60 shadow-inner">
             <motion.div
-              className="h-full bg-gradient-to-r from-amber-400 via-purple-500 to-pink-500 rounded-full"
+              className="h-full bg-gradient-to-r from-amber-400 via-indigo-500 to-pink-500 rounded-full"
               style={{ width: `${progress}%` }}
               transition={{ ease: 'easeOut' }}
             />
