@@ -138,17 +138,13 @@
   animation: orbitSpin 20s linear infinite;
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 9px;
+/* Hide Default Browser Scrollbars Globally */
+html, body {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
 }
-::-webkit-scrollbar-track {
-  background: #FAF8F5;
-}
-::-webkit-scrollbar-thumb {
-  background: #CBD5E1;
-  border-radius: 6px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #6366F1;
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+*::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }

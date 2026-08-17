@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Lenis from 'lenis';
 import GalaxyCanvas from './components/GalaxyCanvas';
 import CustomCursor from './components/CustomCursor';
+import GalaxyScrollbar from './components/GalaxyScrollbar';
 import ScrollProgress from './components/ScrollProgress';
 import Preloader from './components/Preloader';
 import Header from './components/Header';
@@ -53,12 +54,15 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAF9F5] text-slate-800 font-sans selection:bg-[#7B2CBF] selection:text-white relative overflow-x-hidden">
+    <div className="min-h-screen bg-[#FAF8F5] text-slate-900 font-sans selection:bg-[#4F46E5] selection:text-white relative overflow-x-hidden">
       {/* Interactive Galaxy Canvas Background */}
       <GalaxyCanvas />
 
       {/* Custom Desktop Magnetic Cursor */}
       <CustomCursor />
+
+      {/* Custom Planet Orbit Interactive Scrollbar */}
+      <GalaxyScrollbar />
 
       {/* Top Orbit Scroll Progress Indicator */}
       <ScrollProgress />
