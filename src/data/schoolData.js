@@ -17,7 +17,7 @@ export const PROGRAMS = [
   {
     id: "playgroup",
     title: "Playgroup",
-    age: "Early Learners",
+    age: "Early Learners (1.5 - 2.5 Yrs)",
     description: "A joyful first step into structured learning, exploration and social interaction.",
     image: "https://images.unsplash.com/photo-1587654780291-39c9404d746b?q=80&w=1200&auto=format&fit=crop",
     highlights: ["Sensory Exploration", "Social Interaction", "Guided Free Play", "Motor Skills Development"],
@@ -26,7 +26,7 @@ export const PROGRAMS = [
   {
     id: "nursery",
     title: "Nursery",
-    age: "Curious Explorers",
+    age: "Curious Explorers (2.5 - 3.5 Yrs)",
     description: "A nurturing environment focused on early communication, creativity, discovery and foundational learning.",
     image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1200&auto=format&fit=crop",
     highlights: ["Early Communication", "Phonics & Language", "Creative Crafts", "Rhythm & Movement"],
@@ -35,7 +35,7 @@ export const PROGRAMS = [
   {
     id: "lkg",
     title: "LKG",
-    age: "Active Learners",
+    age: "Active Learners (3.5 - 4.5 Yrs)",
     description: "Building strong foundations through engaging activities, early literacy, numeracy and creative exploration.",
     image: "https://images.unsplash.com/photo-1516627145497-ae6968895b74?q=80&w=1200&auto=format&fit=crop",
     highlights: ["Literacy Foundations", "Fun Numeracy", "Scientific Curiosity", "Group Collaboration"],
@@ -44,7 +44,7 @@ export const PROGRAMS = [
   {
     id: "ukg",
     title: "UKG",
-    age: "Future Stars",
+    age: "Future Stars (4.5 - 5.5 Yrs)",
     description: "Preparing children for the next stage of their educational journey through confidence-building and foundational academic skills.",
     image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1200&auto=format&fit=crop",
     highlights: ["Advanced Foundation", "Writing & Expression", "Problem Solving", "Primary School Readiness"],
@@ -109,36 +109,128 @@ export const EXTRACURRICULAR = [
   }
 ];
 
-export const WHY_CHOOSE_US = [
+export const ACTIVITIES = EXTRACURRICULAR;
+
+export const FACILITIES = [
   {
-    icon: "HeartHandshake",
-    title: "Holistic Development",
-    description: "Balancing cognitive, emotional, social, and physical growth in every activity."
+    id: "classrooms",
+    title: "Modern Vibrant Classrooms",
+    description: "Bright, airy, child-safe spaces equipped with interactive learning toys and age-appropriate furniture.",
+    image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=800&auto=format&fit=crop"
   },
   {
-    icon: "Sparkles",
-    title: "Creative Learning",
-    description: "Activity-driven learning designed to spark imagination and natural curiosity."
+    id: "play-area",
+    title: "Safe Indoor & Outdoor Play Area",
+    description: "Soft padded play zones and outdoor spaces for physical agility and social play.",
+    image: "https://images.unsplash.com/photo-1587654780291-39c9404d746b?q=80&w=800&auto=format&fit=crop"
   },
   {
-    icon: "Smile",
-    title: "Child-Friendly Environment",
-    description: "A warm, safe, and cheerful atmosphere where every child feels confident to explore."
+    id: "activity-spaces",
+    title: "Creative Art & Activity Zone",
+    description: "Dedicated spaces for drawing, crafts, music, yoga, and gymnastics sessions.",
+    image: "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?q=80&w=800&auto=format&fit=crop"
   },
   {
-    icon: "ShieldCheck",
-    title: "Confidence Building",
-    description: "Encouraging self-expression and independent thinking through guided praise."
+    id: "learning-resources",
+    title: "Sensory Toys & Library",
+    description: "Rich collection of early storybooks, tactile puzzles, and phonics learning tools.",
+    image: "https://images.unsplash.com/photo-1516627145497-ae6968895b74?q=80&w=800&auto=format&fit=crop"
   },
   {
-    icon: "Trophy",
-    title: "Co-Curricular Activities",
-    description: "Integrating Karate, Yoga, Music, Art, and Gymnastics into daily routines."
+    id: "safety-care",
+    title: "CCTV Monitored & Safe Campus",
+    description: "Continuous supervision, sanitized spaces, and gentle staff ensuring child safety.",
+    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=800&auto=format&fit=crop"
   },
   {
-    icon: "UserCheck",
-    title: "Individual Attention",
-    description: "Small group interactions allowing teachers to nurture each child's unique talents."
+    id: "tuition-hub",
+    title: "Focused Evening Tuition Hub",
+    description: "Quiet, supportive environment for primary grade students after school hours.",
+    image: "https://images.unsplash.com/photo-1596464716127-f2a82984de30?q=80&w=800&auto=format&fit=crop"
+  }
+];
+
+export const FACULTY = [
+  {
+    id: 1,
+    name: "Principal & Academic Lead",
+    role: "Preschool Leadership",
+    bio: "Dedicated early childhood educator ensuring holistic development, warmth, and safe guidance for every young learner."
+  },
+  {
+    id: 2,
+    name: "Senior Pre-Primary Teacher",
+    role: "Playgroup & Nursery Lead",
+    bio: "Specialist in sensory play, early language development, and building self-confidence in first-time learners."
+  },
+  {
+    id: 3,
+    name: "Co-Curricular Instructor",
+    role: "Karate, Yoga & Activity Guide",
+    bio: "Focuses on developing motor coordination, physical fitness, rhythm, and creative expression in children."
+  }
+];
+
+export const GALLERY_IMAGES = [
+  {
+    id: 1,
+    category: "Learning & Discovery",
+    caption: "Interactive Storytelling & Phonics Session",
+    url: "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1200&auto=format&fit=crop"
+  },
+  {
+    id: 2,
+    category: "Play & Movement",
+    caption: "Joyful Group Play & Motor Coordination",
+    url: "https://images.unsplash.com/photo-1587654780291-39c9404d746b?q=80&w=1200&auto=format&fit=crop"
+  },
+  {
+    id: 3,
+    category: "Creative Arts",
+    caption: "Hands-on Color Painting & Craft Workshop",
+    url: "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?q=80&w=1200&auto=format&fit=crop"
+  },
+  {
+    id: 4,
+    category: "Early Literacy",
+    caption: "Guided Alphabet & Phonics Exploration",
+    url: "https://images.unsplash.com/photo-1516627145497-ae6968895b74?q=80&w=1200&auto=format&fit=crop"
+  },
+  {
+    id: 5,
+    category: "Co-Curricular Activities",
+    caption: "Kids Yoga & Mindful Movement Session",
+    url: "https://images.unsplash.com/photo-1545205597-3d9d02c29597?q=80&w=1200&auto=format&fit=crop"
+  },
+  {
+    id: 6,
+    category: "Evening Tuitions",
+    caption: "Focused Primary Grade Tuition & Homework Care",
+    url: "https://images.unsplash.com/photo-1596464716127-f2a82984de30?q=80&w=1200&auto=format&fit=crop"
+  }
+];
+
+export const TESTIMONIALS = [
+  {
+    id: 1,
+    quote: "Galaxy Next Gen has been a wonderful blessing for our daughter. The teachers are so warm and patient, and her confidence has blossomed tremendously!",
+    name: "Sunita K.",
+    child: "Ananya",
+    program: "Nursery"
+  },
+  {
+    id: 2,
+    quote: "The combination of academics with Karate, Yoga, and Music is fantastic. My son loves going to school every single morning on Sulla Road.",
+    name: "Rajesh Patil",
+    child: "Vihaan",
+    program: "LKG"
+  },
+  {
+    id: 3,
+    quote: "Exceptional care and individual attention. The evening tuition sessions have helped my elder son excel in school homework effortlessly.",
+    name: "Megha Joshi",
+    child: "Rohan",
+    program: "UKG & Evening Tuition"
   }
 ];
 

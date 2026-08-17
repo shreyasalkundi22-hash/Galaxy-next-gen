@@ -1,17 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Sparkles, Star } from 'lucide-react';
+import { Star, Sparkles } from 'lucide-react';
 import { SCHOOL_INFO } from '../data/schoolData';
 import logoImg from '../assets/logo.jpg';
 
 export default function Preloader() {
   const [loading, setLoading] = useState(true);
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 1600);
-    return () => clearTimeout(timer);
+    const interval = setInterval(() => {
+      setProgress((prev) => {
+        if (prev >= 100) {
+          clearInterval(interval);
+          setTimeout(() => setLoading(false), 400);
+          return 100;
+        }
+        const diff = Math.floor(Math.random() * 15) + 5;
+        return Math.min(prev + diff, 100);
+      });
+    }, 100);
+
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -19,72 +29,65 @@ export default function Preloader() {
       {loading && (
         <motion.div
           initial={{ opacity: 1 }}
-          exit={{ opacity: 0, transition: { duration: 0.6, ease: 'easeInOut' } }}
-          className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#0D1B2A] text-white px-4"
+          exit={{ 
+            y: '-100%',
+            transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] } 
+          }}
+          className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#0D1B2A] text-white px-4 overflow-hidden"
         >
-          {/* Animated Background Mesh Glow */}
+          {/* Ambient Glows */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#7B2CBF]/30 rounded-full blur-3xl animate-pulse-glow pointer-events-none" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-[#F59E0B]/20 rounded-full blur-2xl animate-float-slow pointer-events-none" />
 
-          {/* Logo Frame */}
-          <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
-            className="relative mb-6"
-          >
-            <div className="w-28 h-28 sm:w-36 sm:h-36 rounded-3xl bg-white p-2.5 shadow-2xl shadow-purple-900/50 border border-amber-300/40 flex items-center justify-center overflow-hidden">
+          {/* Logo & Orbit System */}
+          <div className="relative mb-8">
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ duration: 12, repeat: Infinity, ease: 'linear' }}
+              className="absolute -inset-6 rounded-full border border-dashed border-amber-400/40 pointer-events-none"
+            >
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-amber-400 shadow-md shadow-amber-400/50 flex items-center justify-center">
+                <Star className="w-2.5 h-2.5 text-slate-950 fill-slate-950" />
+              </div>
+            </motion.div>
+
+            <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-white p-2 shadow-2xl shadow-purple-900/60 border-2 border-amber-400 flex items-center justify-center relative overflow-hidden">
               <img
                 src={logoImg}
                 alt={SCHOOL_INFO.name}
                 className="w-full h-full object-contain"
               />
             </div>
-            
-            {/* Floating Star Badges */}
-            <motion.div 
-              animate={{ rotate: 360 }} 
-              transition={{ duration: 15, repeat: Infinity, ease: 'linear' }}
-              className="absolute -top-3 -right-3 p-1.5 rounded-full bg-amber-400 text-slate-950 shadow-lg"
-            >
-              <Star className="w-4 h-4 fill-slate-950" />
-            </motion.div>
-          </motion.div>
+          </div>
 
-          {/* Brand Name */}
+          {/* School Name */}
           <motion.h2
-            initial={{ y: 15, opacity: 0 }}
+            initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.2, duration: 0.5 }}
-            className="text-2xl sm:text-3xl font-bold tracking-tight text-center font-display text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-white to-purple-200"
+            className="text-2xl sm:text-3xl font-extrabold tracking-widest font-display text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-white to-purple-200 uppercase text-center"
           >
-            {SCHOOL_INFO.name}
+            GALAXY NEXT GEN
           </motion.h2>
 
-          {/* Tagline */}
-          <motion.p
-            initial={{ y: 10, opacity: 0 }}
-            animate={{ y: 0, opacity: 0.85 }}
-            transition={{ delay: 0.35, duration: 0.5 }}
-            className="mt-2 text-xs sm:text-sm text-purple-200/90 font-medium text-center italic tracking-wide"
-          >
-            "{SCHOOL_INFO.tagline}"
-          </motion.p>
+          <p className="mt-2 text-xs text-purple-200/80 font-medium italic tracking-wider">
+            A universe of possibilities
+          </p>
 
-          {/* Animated Progress Bar */}
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.4 }}
-            className="mt-8 w-48 sm:w-64 h-1.5 bg-slate-800 rounded-full overflow-hidden border border-slate-700/50"
-          >
+          {/* Smooth Loading Percentage Counter */}
+          <div className="mt-10 flex items-center gap-2">
+            <span className="text-4xl sm:text-5xl font-black font-display text-amber-400 tracking-tighter">
+              {String(progress).padStart(2, '0')}
+            </span>
+            <span className="text-sm font-bold text-amber-400/80">%</span>
+          </div>
+
+          {/* Progress Bar */}
+          <div className="mt-4 w-48 sm:w-64 h-1.5 bg-slate-800 rounded-full overflow-hidden border border-slate-700/60">
             <motion.div
-              initial={{ width: "0%" }}
-              animate={{ width: "100%" }}
-              transition={{ duration: 1.4, ease: "easeInOut" }}
               className="h-full bg-gradient-to-r from-amber-400 via-purple-500 to-pink-500 rounded-full"
+              style={{ width: `${progress}%` }}
+              transition={{ ease: 'easeOut' }}
             />
-          </motion.div>
+          </div>
         </motion.div>
       )}
     </AnimatePresence>

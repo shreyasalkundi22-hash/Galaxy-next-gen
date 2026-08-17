@@ -1,13 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import Lenis from 'lenis';
+import GalaxyCanvas from './components/GalaxyCanvas';
+import CustomCursor from './components/CustomCursor';
+import ScrollProgress from './components/ScrollProgress';
 import Preloader from './components/Preloader';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import AboutUs from './components/AboutUs';
+import OurWorld from './components/OurWorld';
 import Programs from './components/Programs';
+import Extracurricular from './components/Extracurricular';
 import Facilities from './components/Facilities';
+import Faculty from './components/Faculty';
 import Gallery from './components/Gallery';
-import ParentStories from './components/ParentStories';
-import Events from './components/Events';
+import Testimonials from './components/Testimonials';
 import Admissions from './components/Admissions';
 import ContactUs from './components/ContactUs';
 import Footer from './components/Footer';
@@ -16,6 +22,27 @@ import AdmissionsModal from './components/AdmissionsModal';
 
 export default function App() {
   const [admissionsModalOpen, setAdmissionsModalOpen] = useState(false);
+
+  useEffect(() => {
+    // Initialize Lenis smooth scroll
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+      touchMultiplier: 2
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy();
+    };
+  }, []);
 
   const handleOpenAdmissions = () => {
     setAdmissionsModalOpen(true);
@@ -26,47 +53,64 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAF9F5] text-slate-800 font-sans selection:bg-[#7B2CBF] selection:text-white">
-      {/* Opening Loader */}
+    <div className="min-h-screen bg-[#FAF9F5] text-slate-800 font-sans selection:bg-[#7B2CBF] selection:text-white relative overflow-x-hidden">
+      {/* Interactive Galaxy Canvas Background */}
+      <GalaxyCanvas />
+
+      {/* Custom Desktop Magnetic Cursor */}
+      <CustomCursor />
+
+      {/* Top Orbit Scroll Progress Indicator */}
+      <ScrollProgress />
+
+      {/* Cinematic Preloader */}
       <Preloader />
 
-      {/* Main Liquid Glass Navbar */}
+      {/* Floating Liquid-Glass Navigation Bar */}
       <Header onOpenAdmissions={handleOpenAdmissions} />
 
-      <main>
-        {/* Hero Section (Preserved starting layout) */}
+      <main className="relative z-10">
+        {/* Full Viewport Cinematic Hero */}
         <Hero onOpenAdmissions={handleOpenAdmissions} />
 
-        {/* About Galaxy Next Gen Section */}
+        {/* Hero -> About Masked Transition & Editorial Section */}
         <AboutUs />
 
-        {/* Programs Bento Grid Section */}
+        {/* "Our World" Interactive Visual Panels */}
+        <OurWorld onOpenAdmissions={handleOpenAdmissions} />
+
+        {/* Programs Bento Grid Showcase */}
         <Programs onOpenAdmissions={handleOpenAdmissions} />
 
-        {/* Learning Facilities Section (Coming Soon) */}
-        <Facilities onOpenAdmissions={handleOpenAdmissions} />
+        {/* Co-Curricular Enrichment & Marquee Typography */}
+        <Extracurricular onOpenAdmissions={handleOpenAdmissions} />
 
-        {/* Campus Gallery Section */}
+        {/* Campus Facilities Visual Gallery */}
+        <Facilities />
+
+        {/* Educators Showcase */}
+        <Faculty />
+
+        {/* Editorial Masonry Gallery & Lightbox */}
         <Gallery />
 
-        {/* Community Feedback & Updates */}
-        <ParentStories onOpenAdmissions={handleOpenAdmissions} />
-        <Events />
+        {/* Parent Reviews Slider */}
+        <Testimonials />
 
         {/* High-Conversion Admission Enquiry Form */}
         <Admissions />
 
-        {/* Contact & Map Location Section */}
+        {/* Location & Map Section */}
         <ContactUs onOpenAdmissions={handleOpenAdmissions} />
       </main>
 
-      {/* Footer */}
+      {/* Unforgettable Display Footer */}
       <Footer onOpenAdmissions={handleOpenAdmissions} />
 
-      {/* Mobile Floating Action Bar */}
+      {/* Mobile Sticky Quick Contact */}
       <MobileStickyCall onOpenAdmissions={handleOpenAdmissions} />
 
-      {/* Reusable Admissions Modal */}
+      {/* Admissions Modal */}
       <AdmissionsModal isOpen={admissionsModalOpen} onClose={handleCloseAdmissions} />
     </div>
   );

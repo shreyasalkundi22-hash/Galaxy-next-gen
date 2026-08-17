@@ -58,68 +58,76 @@ export default function AboutUs() {
   ];
 
   return (
-    <section id="about" className="py-20 sm:py-28 bg-[#FAF9F5] relative overflow-hidden">
-      {/* Background Subtle Accent */}
-      <div className="absolute top-1/2 left-0 w-72 h-72 bg-purple-100/50 rounded-full blur-3xl -z-10 pointer-events-none" />
+    <section id="about" className="py-24 sm:py-32 bg-[#FAF9F5] relative overflow-hidden">
+      {/* Glow Orbs */}
+      <div className="absolute top-1/3 left-0 w-80 h-80 bg-purple-200/40 rounded-full blur-3xl -z-10 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        {/* Editorial Headline Reveal */}
+        <div className="max-w-4xl mx-auto mb-20 text-center">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-100/80 text-[#7B2CBF] text-xs font-bold uppercase tracking-wider mb-4 border border-purple-200"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-100/90 text-[#7B2CBF] text-xs font-extrabold uppercase tracking-widest mb-6 border border-purple-200"
           >
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>About Galaxy Next Gen</span>
+            <Sparkles className="w-4 h-4" />
+            <span>Our Philosophy</span>
           </motion.div>
 
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 font-display tracking-tight leading-tight"
-          >
-            Growing Curious Minds. <br className="hidden sm:inline" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#161E54] via-[#7B2CBF] to-[#A12568]">
-              Building Confident Futures.
-            </span>
-          </motion.h2>
+          <div className="space-y-2 text-3xl sm:text-5xl lg:text-6xl font-extrabold font-display tracking-tight text-slate-900 leading-none uppercase">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+            >
+              WHERE LITTLE MINDS
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.15 }}
+              className="text-transparent bg-clip-text bg-gradient-to-r from-[#161E54] via-[#7B2CBF] to-[#A12568]"
+            >
+              BEGIN BIG JOURNEYS.
+            </motion.div>
+          </div>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="mt-4 text-base sm:text-lg text-slate-600 font-normal leading-relaxed"
+            transition={{ delay: 0.3 }}
+            className="mt-6 text-base sm:text-xl text-slate-600 font-normal max-w-2xl mx-auto leading-relaxed"
           >
             Galaxy Next Gen Pre School on Sulla Road, Hubli provides a warm, nurturing environment where young children can learn, explore, create, and develop lifelong confidence.
           </motion.p>
         </div>
 
-        {/* Split Screen Design */}
+        {/* Asymmetric Visual Composition & Floating Badges */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-12 items-center">
           
-          {/* Left Column: Image with Floating Action Cards */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 0.8 }}
             className="lg:col-span-6 relative"
           >
             <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
               <img
                 src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1200&auto=format&fit=crop"
-                alt="Children engaged in creative learning at Galaxy Next Gen Pre School"
-                className="w-full h-[400px] sm:h-[480px] object-cover"
+                alt="Children engaged in creative learning"
+                className="w-full h-[420px] sm:h-[500px] object-cover"
+                data-cursor="PLAY"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent flex items-end p-6">
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent flex items-end p-6">
                 <div className="text-white">
-                  <span className="text-xs font-semibold uppercase tracking-widest text-amber-300">
+                  <span className="text-xs font-bold uppercase tracking-widest text-amber-300">
                     Sulla Road, Hubli
                   </span>
                   <h3 className="text-lg font-bold">A Safe & Inspiring Preschool Environment</h3>
@@ -127,75 +135,45 @@ export default function AboutUs() {
               </div>
             </div>
 
-            {/* 4 Required Floating Accent Pills: Learn, Explore, Create, Grow */}
+            {/* Floating Action Badges: PLAY, LEARN, CREATE, DISCOVER */}
             <div className="grid grid-cols-2 gap-3 mt-4">
-              <motion.div
-                whileHover={{ scale: 1.03 }}
-                className="bg-white p-3.5 rounded-2xl shadow-md border border-purple-100 flex items-center gap-3"
-              >
-                <div className="w-9 h-9 rounded-xl bg-purple-100 text-[#7B2CBF] flex items-center justify-center font-extrabold text-sm">
-                  📚
-                </div>
-                <div>
-                  <h4 className="text-xs font-bold text-slate-900">Learn</h4>
-                  <p className="text-[10px] text-slate-500 font-medium">Foundational Joy</p>
-                </div>
-              </motion.div>
-
-              <motion.div
-                whileHover={{ scale: 1.03 }}
-                className="bg-white p-3.5 rounded-2xl shadow-md border border-amber-100 flex items-center gap-3"
-              >
-                <div className="w-9 h-9 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center font-extrabold text-sm">
-                  🔍
-                </div>
-                <div>
-                  <h4 className="text-xs font-bold text-slate-900">Explore</h4>
-                  <p className="text-[10px] text-slate-500 font-medium">Curiosity First</p>
-                </div>
-              </motion.div>
-
-              <motion.div
-                whileHover={{ scale: 1.03 }}
-                className="bg-white p-3.5 rounded-2xl shadow-md border border-pink-100 flex items-center gap-3"
-              >
-                <div className="w-9 h-9 rounded-xl bg-pink-100 text-pink-700 flex items-center justify-center font-extrabold text-sm">
-                  🎨
-                </div>
-                <div>
-                  <h4 className="text-xs font-bold text-slate-900">Create</h4>
-                  <p className="text-[10px] text-slate-500 font-medium">Boundless Art</p>
-                </div>
-              </motion.div>
-
-              <motion.div
-                whileHover={{ scale: 1.03 }}
-                className="bg-white p-3.5 rounded-2xl shadow-md border border-emerald-100 flex items-center gap-3"
-              >
-                <div className="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-extrabold text-sm">
-                  🌱
-                </div>
-                <div>
-                  <h4 className="text-xs font-bold text-slate-900">Grow</h4>
-                  <p className="text-[10px] text-slate-500 font-medium">Confident Futures</p>
-                </div>
-              </motion.div>
+              {[
+                { title: 'PLAY', emoji: '🎈', desc: 'Joyful Growth', color: 'bg-purple-100 text-[#7B2CBF] border-purple-200' },
+                { title: 'LEARN', emoji: '📚', desc: 'Foundational Skill', color: 'bg-amber-100 text-amber-800 border-amber-200' },
+                { title: 'CREATE', emoji: '🎨', desc: 'Boundless Art', color: 'bg-pink-100 text-pink-800 border-pink-200' },
+                { title: 'DISCOVER', emoji: '🔍', desc: 'Curious Curiosity', color: 'bg-emerald-100 text-emerald-800 border-emerald-200' }
+              ].map((badge) => (
+                <motion.div
+                  key={badge.title}
+                  whileHover={{ scale: 1.04, y: -2 }}
+                  className="bg-white p-3.5 rounded-2xl shadow-md border border-slate-100 flex items-center gap-3"
+                  data-cursor={badge.title}
+                >
+                  <div className={`w-9 h-9 rounded-xl ${badge.color} border flex items-center justify-center font-black text-sm shrink-0`}>
+                    {badge.emoji}
+                  </div>
+                  <div>
+                    <h4 className="text-xs font-extrabold text-slate-900 tracking-wider">{badge.title}</h4>
+                    <p className="text-[10px] text-slate-500 font-medium">{badge.desc}</p>
+                  </div>
+                </motion.div>
+              ))}
             </div>
           </motion.div>
 
-          {/* Right Column: 8 Growth Pillars Grid */}
+          {/* Pillars Grid */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 0.8 }}
             className="lg:col-span-6 flex flex-col justify-center"
           >
-            <h3 className="text-2xl font-bold text-slate-900 font-display mb-6">
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-display mb-6">
               Our 8 Pillars of Child Development
             </h3>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
               {pillars.map((pillar, idx) => {
                 const IconComponent = pillar.icon;
                 return (
@@ -214,10 +192,10 @@ export default function AboutUs() {
                         <IconComponent className="w-4 h-4" />
                       </div>
                       <div>
-                        <h4 className="text-sm font-bold text-slate-900 leading-tight">
+                        <h4 className="text-xs sm:text-sm font-bold text-slate-900 leading-tight">
                           {pillar.title}
                         </h4>
-                        <p className="text-xs text-slate-500 font-normal mt-1 leading-normal">
+                        <p className="text-[11px] text-slate-500 font-normal mt-1 leading-normal">
                           {pillar.desc}
                         </p>
                       </div>

@@ -25,13 +25,26 @@ export default function Hero({ onOpenAdmissions }) {
     }
   };
 
+  const wordVariants = {
+    hidden: { opacity: 0, y: 35 },
+    visible: (i) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: i * 0.1,
+        duration: 0.8,
+        ease: [0.16, 1, 0.3, 1]
+      }
+    })
+  };
+
   return (
-    <section id="hero" className="relative min-h-[94vh] pt-32 pb-20 sm:pt-40 sm:pb-28 overflow-hidden flex items-center">
-      {/* Background Organic Mesh & Gradient Orbs */}
-      <div className="absolute top-0 right-0 w-[550px] h-[550px] bg-gradient-to-br from-purple-300/30 via-amber-200/30 to-transparent rounded-full blur-3xl -z-10 pointer-events-none transform translate-x-1/4 -translate-y-1/4" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gradient-to-tr from-sky-200/40 via-purple-200/20 to-transparent rounded-full blur-3xl -z-10 pointer-events-none transform -translate-x-1/4 translate-y-1/4" />
-      
-      {/* Floating Star Badges */}
+    <section id="hero" className="relative min-h-[96vh] pt-32 pb-20 sm:pt-40 sm:pb-28 overflow-hidden flex items-center">
+      {/* Background Cosmic Mesh & Glow */}
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-br from-purple-300/30 via-amber-200/30 to-transparent rounded-full blur-3xl -z-10 pointer-events-none transform translate-x-1/4 -translate-y-1/4" />
+      <div className="absolute bottom-0 left-0 w-[550px] h-[550px] bg-gradient-to-tr from-sky-200/40 via-purple-200/20 to-transparent rounded-full blur-3xl -z-10 pointer-events-none transform -translate-x-1/4 translate-y-1/4" />
+
+      {/* Floating Constellation Stars */}
       <div className="absolute top-28 left-12 text-amber-400/70 animate-float-slow hidden md:block">
         <Star className="w-8 h-8 fill-amber-300" />
       </div>
@@ -45,18 +58,14 @@ export default function Hero({ onOpenAdmissions }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           
-          {/* Left Hero Column: Brand, Updated Headline, Actions */}
-          <motion.div
-            initial={{ opacity: 0, x: -35 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left z-10"
-          >
-            {/* Standalone Institution Logo */}
+          {/* Left Hero Column: Standalone Emblem Logo, Word Reveal Heading, Magnetic CTA */}
+          <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left z-10">
+            
+            {/* Standalone Emblem Logo */}
             <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
+              initial={{ scale: 0.85, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
               className="mb-6"
             >
               <img
@@ -66,77 +75,101 @@ export default function Hero({ onOpenAdmissions }) {
               />
             </motion.div>
 
-            {/* Editorial Heading Structure with exact requested tagline: "A foundation for future." */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.12] font-display">
-              <span className="block text-[#161E54]">GALAXY NEXT GEN</span>
-              <span className="mt-2 block text-transparent bg-clip-text bg-gradient-to-r from-[#7B2CBF] via-[#A12568] to-[#D97706] italic font-normal text-3xl sm:text-4xl lg:text-5xl pt-1">
-                "A foundation for future."
+            {/* Word Reveal Heading */}
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-900 leading-[1.08] font-display">
+              <span className="inline-block overflow-hidden mr-3">
+                <motion.span custom={1} variants={wordVariants} initial="hidden" animate="visible" className="inline-block text-[#161E54]">
+                  GALAXY
+                </motion.span>
+              </span>
+              <span className="inline-block overflow-hidden">
+                <motion.span custom={2} variants={wordVariants} initial="hidden" animate="visible" className="inline-block text-[#161E54]">
+                  NEXT GEN
+                </motion.span>
+              </span>
+              <span className="mt-2 block text-transparent bg-clip-text bg-gradient-to-r from-[#7B2CBF] via-[#A12568] to-[#D97706] italic font-normal text-3xl sm:text-5xl lg:text-6xl pt-1">
+                "Where little minds begin big journeys."
               </span>
             </h1>
 
             {/* Supporting Text */}
-            <p className="mt-6 text-base sm:text-lg text-slate-600 max-w-2xl leading-relaxed font-normal">
-              {SCHOOL_INFO.heroSubtitle}
-            </p>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.8 }}
+              className="mt-6 text-base sm:text-xl text-slate-600 max-w-2xl leading-relaxed font-normal"
+            >
+              A joyful, creative universe for curious minds, creative hearts, and confident futures on Sulla Road, Hubli.
+            </motion.p>
 
-            {/* Location & Quick Contact Badges */}
-            <div className="mt-6 flex flex-wrap items-center justify-center lg:justify-start gap-3">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-100/70 text-purple-950 border border-purple-200/80 text-xs font-bold shadow-xs">
+            {/* Badges */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.8 }}
+              className="mt-6 flex flex-wrap items-center justify-center lg:justify-start gap-3"
+            >
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-100/80 text-purple-950 border border-purple-200 text-xs font-bold shadow-xs">
                 <MapPin className="w-4 h-4 text-[#7B2CBF]" />
                 <span>{SCHOOL_INFO.shortLocation}</span>
               </div>
 
               <a
                 href={`tel:${SCHOOL_INFO.phone}`}
-                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-100/80 text-amber-950 border border-amber-300/80 text-xs font-bold hover:bg-amber-200/80 transition-colors shadow-xs"
+                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-100/80 text-amber-950 border border-amber-300 text-xs font-bold hover:bg-amber-200 transition-colors shadow-xs"
+                data-cursor="CALL"
               >
                 <Phone className="w-3.5 h-3.5 text-amber-700 fill-amber-500" />
                 <span>Call Us: {SCHOOL_INFO.phone}</span>
               </a>
-            </div>
+            </motion.div>
 
             {/* Action Buttons */}
-            <div className="mt-8 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6, duration: 0.8 }}
+              className="mt-8 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto"
+            >
               <button
                 onClick={onOpenAdmissions}
-                className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-[#161E54] via-[#7B2CBF] to-[#A12568] text-white font-extrabold text-sm sm:text-base shadow-xl shadow-purple-900/25 hover:shadow-2xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 flex items-center justify-center gap-3 group cursor-pointer"
+                data-cursor="EXPLORE"
+                className="w-full sm:w-auto px-9 py-4 rounded-2xl bg-gradient-to-r from-[#161E54] via-[#7B2CBF] to-[#A12568] text-white font-extrabold text-sm sm:text-base shadow-xl shadow-purple-900/25 hover:shadow-2xl hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 flex items-center justify-center gap-3 group cursor-pointer"
               >
-                <GraduationCap className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
-                <span>Admission Enquiry</span>
-                <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+                <Sparkles className="w-5 h-5 text-amber-300 group-hover:rotate-12 transition-transform" />
+                <span>EXPLORE OUR WORLD</span>
+                <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
 
               <a
                 href="#about"
                 onClick={scrollToExplore}
-                className="w-full sm:w-auto px-7 py-4 rounded-2xl bg-white/90 hover:bg-white text-slate-800 font-bold text-sm sm:text-base border border-slate-200/90 shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer"
+                data-cursor="DISCOVER"
+                className="w-full sm:w-auto px-7 py-4 rounded-2xl bg-white/90 hover:bg-white text-slate-800 font-bold text-sm sm:text-base border border-slate-200 shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer"
               >
-                <Compass className="w-4 h-4 text-[#7B2CBF] group-hover:rotate-45 transition-transform duration-300" />
-                <span>Explore Our School</span>
+                <Compass className="w-4 h-4 text-[#7B2CBF] group-hover:rotate-45 transition-transform" />
+                <span>Explore School</span>
               </a>
-            </div>
+            </motion.div>
 
-            {/* Stock Visuals Disclaimer Pill */}
             <div className="mt-6 inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-slate-100/90 text-slate-500 text-[11px] font-medium border border-slate-200">
               <Info className="w-3.5 h-3.5 text-slate-400" />
               <span>Stock learning visuals shown • Official school photos updating soon</span>
             </div>
-          </motion.div>
+          </div>
 
-          {/* Right Hero Column: Interactive Glass Photo Frame */}
+          {/* Right Hero Column: Interactive Glass Image Frame */}
           <motion.div
             initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.9, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.9, delay: 0.2 }}
             className="lg:col-span-5 relative"
           >
-            {/* Glowing Backdrop Frame */}
             <div className="relative mx-auto max-w-md lg:max-w-none">
               <div className="absolute -inset-4 rounded-3xl bg-gradient-to-r from-[#7B2CBF] via-[#F59E0B] to-[#A12568] opacity-25 blur-2xl animate-pulse-glow" />
 
-              {/* Main Image Frame Container */}
               <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white">
-                <div className="relative h-[350px] sm:h-[430px] w-full">
+                <div className="relative h-[360px] sm:h-[440px] w-full">
                   <AnimatePresence mode="wait">
                     <motion.img
                       key={activeImageIndex}
@@ -147,10 +180,10 @@ export default function Hero({ onOpenAdmissions }) {
                       exit={{ opacity: 0 }}
                       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                       className="w-full h-full object-cover"
+                      data-cursor="VIEW"
                     />
                   </AnimatePresence>
 
-                  {/* Caption Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-transparent flex items-end p-6">
                     <p className="text-white text-xs sm:text-sm font-bold tracking-wide flex items-center gap-2">
                       <Sparkles className="w-4 h-4 text-amber-400 shrink-0" />
@@ -159,7 +192,6 @@ export default function Hero({ onOpenAdmissions }) {
                   </div>
                 </div>
 
-                {/* Slider Dots */}
                 <div className="absolute top-4 right-4 flex gap-1.5 bg-slate-950/50 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20">
                   {HERO_IMAGES.map((_, idx) => (
                     <button
@@ -185,7 +217,7 @@ export default function Hero({ onOpenAdmissions }) {
                 </div>
                 <div>
                   <h4 className="text-xs font-bold text-slate-900">Holistic Care</h4>
-                  <p className="text-[10px] text-slate-500 font-medium">A foundation for future</p>
+                  <p className="text-[10px] text-slate-500 font-medium">A universe of possibilities</p>
                 </div>
               </motion.div>
 
@@ -195,11 +227,11 @@ export default function Hero({ onOpenAdmissions }) {
                 className="absolute -top-4 right-0 sm:-top-6 sm:-right-2 bg-white/95 backdrop-blur-xl p-3.5 rounded-2xl shadow-xl border border-amber-100 flex items-center gap-3 hidden sm:flex z-20"
               >
                 <div className="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center font-bold text-lg">
-                  🎨
+                  🚀
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold text-slate-900">Creative Learning</h4>
-                  <p className="text-[10px] text-slate-500 font-medium">Karate • Yoga • Music</p>
+                  <h4 className="text-xs font-bold text-slate-900">Galaxy Explorer</h4>
+                  <p className="text-[10px] text-slate-500 font-medium">Play • Learn • Discover</p>
                 </div>
               </motion.div>
 
