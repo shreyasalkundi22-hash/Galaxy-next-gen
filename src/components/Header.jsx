@@ -48,7 +48,6 @@ export default function Header({ onOpenAdmissions }) {
 
   return (
     <>
-      {/* Floating Liquid Glass Navigation Bar */}
       <header className="fixed top-0 inset-x-0 z-50 px-3 sm:px-6 pt-3 sm:pt-4 transition-all duration-500 pointer-events-none w-full box-border">
         <div
           className={`max-w-7xl mx-auto pointer-events-auto transition-all duration-500 px-4 sm:px-6 py-2.5 sm:py-3 ${
@@ -64,7 +63,7 @@ export default function Header({ onOpenAdmissions }) {
               className="flex items-center gap-3 group text-left shrink-0"
               data-cursor="GALAXY"
             >
-              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white p-0.5 shadow-md border border-purple-200/90 group-hover:scale-105 transition-transform duration-300 flex items-center justify-center shrink-0">
+              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white p-0.5 shadow-md border border-indigo-200 group-hover:scale-105 transition-transform duration-300 flex items-center justify-center shrink-0">
                 <img
                   src={logoImg}
                   alt={SCHOOL_INFO.name}
@@ -72,10 +71,10 @@ export default function Header({ onOpenAdmissions }) {
                 />
               </div>
               <div className="flex flex-col justify-center">
-                <span className="font-extrabold text-xs sm:text-sm tracking-tight font-display text-slate-900 leading-tight group-hover:text-[#7B2CBF] transition-colors whitespace-nowrap">
+                <span className="font-black text-xs sm:text-sm tracking-tight font-display text-slate-900 leading-tight group-hover:text-[#4F46E5] transition-colors whitespace-nowrap">
                   GALAXY NEXT GEN
                 </span>
-                <span className="font-extrabold text-[10px] sm:text-[11px] tracking-wider text-[#7B2CBF] uppercase whitespace-nowrap leading-none mt-0.5">
+                <span className="font-extrabold text-[10px] sm:text-[11px] tracking-wider text-[#4F46E5] uppercase whitespace-nowrap leading-none mt-0.5">
                   PRE-PRIMARY SCHOOL
                 </span>
               </div>
@@ -89,7 +88,7 @@ export default function Header({ onOpenAdmissions }) {
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
                   data-cursor="NAVIGATE"
-                  className="px-3 py-1.5 text-xs font-bold text-slate-700 hover:text-[#7B2CBF] hover:bg-purple-100/60 rounded-full transition-all duration-200 whitespace-nowrap"
+                  className="px-3.5 py-1.5 text-xs font-extrabold text-slate-700 hover:text-[#4F46E5] hover:bg-indigo-100/70 rounded-full transition-all duration-200 whitespace-nowrap"
                 >
                   {link.name}
                 </a>
@@ -100,7 +99,7 @@ export default function Header({ onOpenAdmissions }) {
             <div className="flex items-center gap-2 shrink-0">
               <a
                 href={`tel:${SCHOOL_INFO.phone}`}
-                className="hidden sm:flex items-center gap-2 px-3 py-1.5 text-xs font-bold text-slate-800 bg-amber-400/20 border border-amber-300/80 hover:bg-amber-400/35 rounded-full transition-all shadow-xs shrink-0"
+                className="hidden sm:flex items-center gap-2 px-3.5 py-1.5 text-xs font-extrabold text-slate-900 bg-amber-400/20 border border-amber-300 hover:bg-amber-400/35 rounded-full transition-all shadow-xs shrink-0"
                 data-cursor="CALL"
               >
                 <div className="w-5 h-5 rounded-full bg-amber-400 flex items-center justify-center text-slate-950 shrink-0">
@@ -112,7 +111,7 @@ export default function Header({ onOpenAdmissions }) {
               <button
                 onClick={onOpenAdmissions}
                 data-cursor="ENQUIRE"
-                className="flex items-center gap-2 px-4 py-2 text-xs font-extrabold text-white bg-gradient-to-r from-[#161E54] via-[#7B2CBF] to-[#A12568] hover:opacity-95 rounded-full shadow-md shadow-purple-900/25 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all cursor-pointer whitespace-nowrap shrink-0"
+                className="flex items-center gap-2 px-5 py-2 text-xs font-black text-white bg-gradient-to-r from-[#1E1B4B] via-[#4F46E5] to-[#D97706] hover:opacity-95 rounded-full shadow-lg shadow-indigo-900/25 hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 transition-all cursor-pointer whitespace-nowrap shrink-0 border border-white/20"
               >
                 <GraduationCap className="w-4 h-4 shrink-0" />
                 <span>Enquire Now</span>
@@ -120,7 +119,7 @@ export default function Header({ onOpenAdmissions }) {
 
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="flex xl:hidden p-2 rounded-2xl bg-purple-100/80 text-slate-800 hover:bg-purple-200/80 border border-purple-200/80 transition-colors shrink-0 cursor-pointer"
+                className="flex xl:hidden p-2 rounded-2xl bg-indigo-100/90 text-slate-900 hover:bg-indigo-200 border border-indigo-200 transition-colors shrink-0 cursor-pointer"
                 aria-label="Toggle menu"
               >
                 {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -131,17 +130,16 @@ export default function Header({ onOpenAdmissions }) {
         </div>
       </header>
 
-      {/* Fullscreen Mobile Galaxy Overlay Menu */}
+      {/* Fullscreen Mobile Drawer */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-40 bg-[#0D1B2A]/95 backdrop-blur-3xl text-white flex flex-col justify-between p-6 sm:p-10 xl:hidden overflow-y-auto"
+            className="fixed inset-0 z-40 bg-[#090E17]/95 backdrop-blur-3xl text-white flex flex-col justify-between p-6 sm:p-10 xl:hidden overflow-y-auto"
           >
-            {/* Background Mesh Glow */}
-            <div className="absolute top-1/4 right-0 w-80 h-80 bg-purple-600/30 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute top-1/4 right-0 w-80 h-80 bg-indigo-600/30 rounded-full blur-3xl pointer-events-none" />
 
             <div className="pt-20">
               <span className="text-xs font-extrabold uppercase tracking-widest text-amber-400 block mb-6">
@@ -160,7 +158,7 @@ export default function Header({ onOpenAdmissions }) {
                     className="text-2xl sm:text-4xl font-extrabold font-display hover:text-amber-400 transition-colors flex items-center justify-between group"
                   >
                     <span>{link.name}</span>
-                    <ChevronRight className="w-6 h-6 text-purple-400 group-hover:translate-x-2 transition-transform" />
+                    <ChevronRight className="w-6 h-6 text-indigo-400 group-hover:translate-x-2 transition-transform" />
                   </motion.a>
                 ))}
               </div>
@@ -172,7 +170,7 @@ export default function Header({ onOpenAdmissions }) {
                   setMobileMenuOpen(false);
                   onOpenAdmissions();
                 }}
-                className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 font-extrabold text-sm shadow-xl flex items-center justify-center gap-2"
+                className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 font-black text-sm shadow-xl flex items-center justify-center gap-2"
               >
                 <GraduationCap className="w-5 h-5" />
                 <span>Begin Admission Enquiry</span>

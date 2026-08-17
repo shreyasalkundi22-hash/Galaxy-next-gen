@@ -19,8 +19,8 @@
 
   body {
     font-family: var(--font-body);
-    background-color: #FAF9F5;
-    color: #1E293B;
+    background-color: #FAF8F5;
+    color: #0F172A;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -28,98 +28,114 @@
   }
 }
 
-/* Thick Liquid Glass Navbar Styling */
+/* Premium Liquid Glass Navbar Styling */
 .liquid-glass-navbar {
   background: linear-gradient(
     135deg, 
-    rgba(255, 255, 255, 0.88) 0%, 
-    rgba(248, 250, 252, 0.78) 50%, 
-    rgba(255, 255, 255, 0.84) 100%
+    rgba(255, 255, 255, 0.92) 0%, 
+    rgba(248, 250, 252, 0.82) 50%, 
+    rgba(255, 255, 255, 0.88) 100%
   );
-  backdrop-filter: blur(28px) saturate(210%);
-  -webkit-backdrop-filter: blur(28px) saturate(210%);
+  backdrop-filter: blur(32px) saturate(220%);
+  -webkit-backdrop-filter: blur(32px) saturate(220%);
   border: 1px solid rgba(255, 255, 255, 0.95);
   box-shadow: 
     inset 0 1.5px 1px 0 rgba(255, 255, 255, 1),
-    inset 0 -1px 2px 0 rgba(123, 44, 191, 0.06),
-    0 16px 40px -6px rgba(13, 27, 42, 0.09),
-    0 4px 16px -2px rgba(123, 44, 191, 0.06);
-  border-radius: 24px;
+    inset 0 -1px 2px 0 rgba(99, 102, 241, 0.08),
+    0 20px 45px -8px rgba(15, 23, 42, 0.08),
+    0 6px 18px -2px rgba(99, 102, 241, 0.06);
+  border-radius: 28px;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .liquid-glass-navbar-scrolled {
   background: linear-gradient(
     135deg, 
-    rgba(255, 255, 255, 0.94) 0%, 
-    rgba(241, 245, 249, 0.88) 50%, 
-    rgba(255, 255, 255, 0.92) 100%
+    rgba(255, 255, 255, 0.96) 0%, 
+    rgba(241, 245, 249, 0.90) 50%, 
+    rgba(255, 255, 255, 0.94) 100%
   );
-  backdrop-filter: blur(32px) saturate(230%);
-  -webkit-backdrop-filter: blur(32px) saturate(230%);
+  backdrop-filter: blur(36px) saturate(240%);
+  -webkit-backdrop-filter: blur(36px) saturate(240%);
   border: 1px solid rgba(255, 255, 255, 1);
   box-shadow: 
     inset 0 1.5px 1px 0 rgba(255, 255, 255, 1),
-    inset 0 -1px 2px 0 rgba(123, 44, 191, 0.08),
-    0 20px 48px -6px rgba(13, 27, 42, 0.14),
-    0 6px 20px -2px rgba(123, 44, 191, 0.09);
-  border-radius: 24px;
+    inset 0 -1px 2px 0 rgba(99, 102, 241, 0.1),
+    0 24px 56px -8px rgba(15, 23, 42, 0.14),
+    0 8px 24px -2px rgba(99, 102, 241, 0.1);
+  border-radius: 28px;
 }
 
-/* Custom Glass Cards */
+/* Luxury Glass Cards */
 .glass-panel {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(16px) saturate(160%);
-  -webkit-backdrop-filter: blur(16px) saturate(160%);
-  border: 1px solid rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.7);
 }
 
 .glass-card {
-  background: rgba(255, 255, 255, 0.82);
-  backdrop-filter: blur(14px) saturate(150%);
-  -webkit-backdrop-filter: blur(14px) saturate(150%);
-  border: 1px solid rgba(243, 244, 246, 0.8);
-  box-shadow: 0 12px 32px -5px rgba(0, 0, 0, 0.05), 0 4px 12px -2px rgba(0, 0, 0, 0.03);
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(18px) saturate(170%);
+  -webkit-backdrop-filter: blur(18px) saturate(170%);
+  border: 1px solid rgba(243, 244, 246, 0.9);
+  box-shadow: 0 16px 40px -6px rgba(0, 0, 0, 0.05), 0 6px 16px -2px rgba(0, 0, 0, 0.03);
 }
 
-.gradient-text-galaxy {
-  background: linear-gradient(135deg, #161E54 0%, #7B2CBF 50%, #A12568 100%);
+/* Gradient Text Classes */
+.gradient-text-aurora {
+  background: linear-gradient(135deg, #1E1B4B 0%, #4F46E5 30%, #9333EA 65%, #D97706 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .gradient-text-amber {
-  background: linear-gradient(135deg, #D97706 0%, #F59E0B 100%);
+  background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 50%, #D97706 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* Float Animations */
+.gradient-text-emerald {
+  background: linear-gradient(135deg, #06B6D4 0%, #10B981 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Micro Animations */
 @keyframes floatSlow {
   0%, 100% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-10px) rotate(1deg); }
+  50% { transform: translateY(-12px) rotate(1.5deg); }
 }
 
 @keyframes floatMedium {
   0%, 100% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-16px) rotate(-1.5deg); }
+  50% { transform: translateY(-18px) rotate(-2deg); }
 }
 
 @keyframes pulseGlow {
-  0%, 100% { opacity: 0.35; transform: scale(1); }
-  50% { opacity: 0.65; transform: scale(1.05); }
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.75; transform: scale(1.08); }
+}
+
+@keyframes orbitSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 .animate-float-slow {
-  animation: floatSlow 7s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation: floatSlow 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
 .animate-float-medium {
-  animation: floatMedium 9s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation: floatMedium 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
 .animate-pulse-glow {
-  animation: pulseGlow 5s ease-in-out infinite;
+  animation: pulseGlow 4.5s ease-in-out infinite;
+}
+
+.animate-orbit {
+  animation: orbitSpin 20s linear infinite;
 }
 
 /* Custom Scrollbar */
@@ -127,12 +143,12 @@
   width: 9px;
 }
 ::-webkit-scrollbar-track {
-  background: #FAF9F5;
+  background: #FAF8F5;
 }
 ::-webkit-scrollbar-thumb {
   background: #CBD5E1;
   border-radius: 6px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #7B2CBF;
+  background: #6366F1;
 }
